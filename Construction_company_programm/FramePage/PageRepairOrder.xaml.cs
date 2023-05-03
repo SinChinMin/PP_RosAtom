@@ -28,7 +28,7 @@ namespace Construction_company_programm.FramePage
             dataGridRepairOrder.ItemsSource = entities.Application_Сonstruction.ToList();
             FilterOrder.Items.Add("Все");
 
-            foreach (var i in entities.Type__Reactor)
+            foreach (var i in entities.Type_Reactor)
             {
                 FilterOrder.Items.Add(i);
             }
@@ -72,7 +72,7 @@ namespace Construction_company_programm.FramePage
         private void Update()
         {
             var order = entities.Application_Сonstruction.ToList();
-            order = order.Where(p => p.Type__Reactor.Contains(FilterOrder.SelectedItem)).ToList();
+            order = order.Where(p => p.Type_Reactor.Contains(FilterOrder.SelectedItem)).ToList();
             if (FilterOrder.SelectedIndex == 0)
             {
                 order = entities.Application_Сonstruction.ToList();

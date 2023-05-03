@@ -21,6 +21,8 @@ namespace Construction_company_programm
     public partial class MainWindow : Window
     {
         Entities entities = new Entities();
+        Random random = new Random();
+        string capcha;
         public MainWindow()
         {
             InitializeComponent();
@@ -79,6 +81,27 @@ namespace Construction_company_programm
         {
             TextBoxLogin.Text = "";
             PasswordBoxPass.Password = "";
+        }
+
+        private void ButtonProvCapcha_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonNewCapcha_Click(object sender, RoutedEventArgs e)
+        {
+            capcha = "";
+            for(int i = 0;i<4;i++)
+            {
+                char sim;
+                do
+                {
+                    sim = (char)random.Next('0', 'z');
+                }
+                while (!((sim >= 'a' && sim <= 'z') || (sim >= 'A' && sim <= 'Z') || (sim >= '0' && sim <= '9')));
+                capcha += sim;
+            }
+            LableCapchaOutput.Content = capcha;
         }
     }
 }

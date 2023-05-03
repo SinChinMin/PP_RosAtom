@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c85770263d0c4460b7374de0b564276b" Name="Diagram1">
+      <Diagram DiagramId="c85770263d0c4460b7374de0b564276b" Name="Diagram1" ZoomLevel="97">
         <EntityTypeShape EntityType="Model.Application_Сonstruction" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="1" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Type_Reactor" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Сontractors" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="Model.AC_Client" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AC_TRepair" ManuallyRouted="false" />

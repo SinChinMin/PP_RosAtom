@@ -21,7 +21,7 @@ namespace Construction_company_programm
             return Co_Name;
         }
     }
-    public partial class Type__Reactor
+    public partial class Type_Reactor
     {
         public override string ToString()
         {

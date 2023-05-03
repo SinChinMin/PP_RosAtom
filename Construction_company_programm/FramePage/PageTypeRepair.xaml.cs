@@ -25,33 +25,33 @@ namespace Construction_company_programm.FramePage
         public PageTypeRepair()
         {
             InitializeComponent();
-            dataGridTRepair.ItemsSource = entities.Type__Reactor.ToList();
+            dataGridTRepair.ItemsSource = entities.Type_Reactor.ToList();
             FilterTRepair.Items.Add("Все");
         }
 
         private void buttonEditDrinkDataGrid_Click(object sender, RoutedEventArgs e)
         {
-            var window = new WindowAddTRepair((sender as Button).DataContext as Type__Reactor);
+            var window = new WindowAddTRepair((sender as Button).DataContext as Type_Reactor);
             window.ShowDialog();
-            dataGridTRepair.ItemsSource = entities.Type__Reactor.ToList();
+            dataGridTRepair.ItemsSource = entities.Type_Reactor.ToList();
         }
 
         private void buttonSaveDrinkAdmin_Click(object sender, RoutedEventArgs e)
         {
             var window = new WindowAddTRepair(null);
             window.ShowDialog();
-            dataGridTRepair.ItemsSource = entities.Type__Reactor.ToList();
+            dataGridTRepair.ItemsSource = entities.Type_Reactor.ToList();
         }
 
         private void buttonRemoveDrinkAdmin_Click(object sender, RoutedEventArgs e)
         {
-            var deleteteTRepair = dataGridTRepair.SelectedItem as Type__Reactor;
+            var deleteteTRepair = dataGridTRepair.SelectedItem as Type_Reactor;
             if (MessageBox.Show("Вы действительно хотите удалить запись", "Удаление",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    entities.Type__Reactor.Remove(deleteteTRepair);
+                    entities.Type_Reactor.Remove(deleteteTRepair);
                     entities.SaveChanges();
                     dataGridTRepair.Items.Refresh();
                     MessageBox.Show("Запись Удалена!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -65,7 +65,7 @@ namespace Construction_company_programm.FramePage
         }
         private void Update()
         {
-            var trepair = entities.Type__Reactor.ToList();
+            var trepair = entities.Type_Reactor.ToList();
 
             trepair = trepair.Where(p => p.Tr_Name.ToString().Contains(textBoxSearchTRepairAmin.Text.ToLower())).ToList();
             dataGridTRepair.ItemsSource = trepair;

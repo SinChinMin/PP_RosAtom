@@ -18,11 +18,11 @@ namespace Construction_company_programm.WindowAdd
             InitializeComponent();
             comboBoxClient.ItemsSource = entities.Client.ToList();
             comboBoxWorker.ItemsSource = entities.Сontractors.ToList();
-            comboBoxTRepair.ItemsSource = entities.Type__Reactor.ToList();
+            comboBoxTRepair.ItemsSource = entities.Type_Reactor.ToList();
 
             if (aConstruction != null)
             {
-                foreach (var i in aConstruction.Type__Reactor)
+                foreach (var i in aConstruction.Type_Reactor)
                 {
                     ListRemont.Items.Add(i);
                 }
@@ -84,11 +84,11 @@ namespace Construction_company_programm.WindowAdd
                 }
                 aConstructions.Сontractors = ordersitems.Сontractors;
 
-                foreach (Type__Reactor i in ListRemont.Items)
+                foreach (Type_Reactor i in ListRemont.Items)
                 {
-                    ordersitems.Type__Reactor.Add(i);
+                    ordersitems.Type_Reactor.Add(i);
                 }
-                aConstructions.Type__Reactor = ordersitems.Type__Reactor;
+                aConstructions.Type_Reactor = ordersitems.Type_Reactor;
 
                 entities.SaveChanges();
                 MessageBox.Show("Запись успешно сохранена", "Успех!");
@@ -136,7 +136,7 @@ namespace Construction_company_programm.WindowAdd
 
         private void ButtonListRemoveRemont_Click(object sender, RoutedEventArgs e)
         {
-            aConstructions.Type__Reactor.Remove(ListRemont.SelectedItem as Type__Reactor);
+            aConstructions.Type_Reactor.Remove(ListRemont.SelectedItem as Type_Reactor);
             entities.SaveChanges();
             ListRemont.Items.Remove(ListRemont.SelectedItem);
             ListRemont.Items.Refresh();

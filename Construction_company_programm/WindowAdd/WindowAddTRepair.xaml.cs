@@ -20,9 +20,9 @@ namespace Construction_company_programm.WindowAdd
     public partial class WindowAddTRepair : Window
     {
         Entities entities = new Entities();
-        private Type__Reactor types = new Type__Reactor();
+        private Type_Reactor types = new Type_Reactor();
         public string ImageSour { get; set; }
-        public WindowAddTRepair(Type__Reactor type)
+        public WindowAddTRepair(Type_Reactor type)
         {
             InitializeComponent();
             types = type;
@@ -43,7 +43,7 @@ namespace Construction_company_programm.WindowAdd
             }
             if (types.Tr_Id == 0)
             {
-                entities.Type__Reactor.Add(types);
+                entities.Type_Reactor.Add(types);
             }
             try
             {

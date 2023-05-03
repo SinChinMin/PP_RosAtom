@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Construction_company_programm"
         mc:Ignorable="d"
-        Title="Авторизация" Height="370" Width="300" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Background="#FF05826E" WindowStartupLocation="CenterScreen" Icon="/SLogo.png">
+        Title="Авторизация" Height="447" Width="300" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Background="#FF05826E" WindowStartupLocation="CenterScreen" Icon="/SLogo.png">
     <Grid ClipToBounds="True" Background="#FF0766AF">
-        <Grid HorizontalAlignment="Center" Height="312" VerticalAlignment="Center" Width="254">
+        <Grid HorizontalAlignment="Center" Height="386" VerticalAlignment="Center" Width="254">
             <Label Content="Авторизация" HorizontalAlignment="Center" Height="30" Margin="0,-5,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontWeight="Bold"/>
             <Label Content="Логин" HorizontalAlignment="Left" Height="25" Margin="10,74,0,0" VerticalAlignment="Top" Width="73"/>
             <Label Content="Пароль" HorizontalAlignment="Left" Height="26" Margin="10,133,0,0" VerticalAlignment="Top" Width="106"/>
             <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Center" Height="34" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" VerticalContentAlignment="Center" Text="admin"/>
-            <Button Content="Вход" HorizontalAlignment="Center" Margin="0,197,0,0" VerticalAlignment="Top" Height="35" Width="222" Click="ButtonEnter_Click"/>
-            <Button Content="Очистить" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Height="35" Width="222" Click="ButtonClear_Click"/>
-            <Button Content="Регестрация" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Height="35" Width="222" Click="ButtonRegestration_Click"/>
+            <Button Content="Вход" HorizontalAlignment="Center" Margin="0,275,0,0" VerticalAlignment="Top" Height="35" Width="222" Click="ButtonEnter_Click"/>
+            <Button Content="Очистить" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Height="35" Width="222" Click="ButtonClear_Click"/>
+            <Button Content="Регестрация" HorizontalAlignment="Center" Margin="0,345,0,0" VerticalAlignment="Top" Height="35" Width="222" Click="ButtonRegestration_Click"/>
             <Image HorizontalAlignment="Left" Height="128" Margin="63,-12,0,0" VerticalAlignment="Top" Width="140" Source="/X50we9OV.png"/>
             <PasswordBox x:Name="PasswordBoxPass" HorizontalAlignment="Center" VerticalAlignment="Top" Width="222" Height="34" VerticalContentAlignment="Center" Password="123" Margin="0,159,0,0"/>
+            <TextBox x:Name="TextBoxCapchaInput" HorizontalAlignment="Left" Height="34" Margin="127,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" VerticalContentAlignment="Center"/>
+            <Label x:Name="LableCapchaOutput" HorizontalAlignment="Left" Margin="42,198,0,0" VerticalAlignment="Top" Width="60" Height="34" VerticalContentAlignment="Center" FontFamily="MV Boli"/>
+            <Button x:Name="ButtonProvCapcha" Content="Проверить" HorizontalAlignment="Left" Margin="127,237,0,0" VerticalAlignment="Top" Height="35" Width="111" Click="ButtonProvCapcha_Click"/>
+            <Button x:Name="ButtonNewCapcha" Content="Новая капча" HorizontalAlignment="Left" Margin="16,237,0,0" VerticalAlignment="Top" Height="35" Width="111" Click="ButtonNewCapcha_Click"/>
         </Grid>
 
     </Grid>
