@@ -19,21 +19,22 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Работник" Width="120">
+                <DataGridTemplateColumn Header="Подрядчики" Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ListView x:Name="ListViewWr" ItemsSource="{Binding Workers}" BorderThickness="0"></ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Вид ремонта" Width="120">
+                <DataGridTemplateColumn Header="Вид реактора" Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ListView x:Name="ListViewRk" ItemsSource="{Binding Type_repair}" BorderThickness="0"></ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Ro_Date}" Width="58"/>
+                <DataGridTextColumn Header="Дата начала" Binding="{Binding Ac_Start_date}" Width="58"/>
+                <DataGridTextColumn Header="Дата завершения" Binding="{Binding Ac_End_date}" Width="58"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

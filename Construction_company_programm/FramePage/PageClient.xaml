@@ -12,10 +12,10 @@
         <DataGrid x:Name="dataGridClient" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="643">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№" Binding="{Binding C_Id}" Width="25"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding С_Lastname}" Width="80"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding C_Name}" Width="68"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding C_Patronymic}" Width="100"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding C_Number_phone}" Width="65"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding С_Name}" Width="80"/>
+                <DataGridTextColumn Header="Почта" Binding="{Binding C_Mail}" Width="68"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding C_Number_phone}" Width="100"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding C_Address}" Width="65"/>
                 <DataGridTemplateColumn Header="Изображение" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
