@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AC_Client">
+          <Key>
+            <PropertyRef Name="RC_Ac_Id" />
+            <PropertyRef Name="RC_C_Id" />
+          </Key>
+          <Property Name="RC_Ac_Id" Type="int" Nullable="false" />
+          <Property Name="RC_C_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AC_TRepair">
+          <Key>
+            <PropertyRef Name="RT_Ac_Id" />
+            <PropertyRef Name="RT_Tr_Id" />
+          </Key>
+          <Property Name="RT_Ac_Id" Type="int" Nullable="false" />
+          <Property Name="RT_Tr_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AC_Worker">
+          <Key>
+            <PropertyRef Name="RW_Ac_Id" />
+            <PropertyRef Name="RW_W_Id" />
+          </Key>
+          <Property Name="RW_Ac_Id" Type="int" Nullable="false" />
+          <Property Name="RW_W_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Application_Сonstruction">
+          <Key>
+            <PropertyRef Name="Ac_Id" />
+          </Key>
+          <Property Name="Ac_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ac_Start_date" Type="date" Nullable="false" />
+          <Property Name="Ac_End_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_Number_phone" Type="int" Nullable="false" />
+          <Property Name="C_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Type_Reactor">
+          <Key>
+            <PropertyRef Name="Tr_Id" />
+          </Key>
+          <Property Name="Tr_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tr_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tr_Cost" Type="money" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="U_Id" />
+          </Key>
+          <Property Name="U_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="U_Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="U_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сontractors">
+          <Key>
+            <PropertyRef Name="Co_Id" />
+          </Key>
+          <Property Name="Co_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Co_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Co_Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Co_Number_phone" Type="int" Nullable="false" />
+          <Property Name="Co_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Co_Image" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_ROrder_Client_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="AC_Client" Type="Self.AC_Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="C_Id" />
+            </Principal>
+            <Dependent Role="AC_Client">
+              <PropertyRef Name="RC_C_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROrder_Client_Repair_order">
+          <End Role="Application_Сonstruction" Type="Self.Application_Сonstruction" Multiplicity="1" />
+          <End Role="AC_Client" Type="Self.AC_Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application_Сonstruction">
+              <PropertyRef Name="Ac_Id" />
+            </Principal>
+            <Dependent Role="AC_Client">
+              <PropertyRef Name="RC_Ac_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROrder_TRepair_Repair_order">
+          <End Role="Application_Сonstruction" Type="Self.Application_Сonstruction" Multiplicity="1" />
+          <End Role="AC_TRepair" Type="Self.AC_TRepair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application_Сonstruction">
+              <PropertyRef Name="Ac_Id" />
+            </Principal>
+            <Dependent Role="AC_TRepair">
+              <PropertyRef Name="RT_Ac_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROrder_TRepair_Type_repair">
+          <End Role="Type_Reactor" Type="Self.Type_Reactor" Multiplicity="1" />
+          <End Role="AC_TRepair" Type="Self.AC_TRepair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Reactor">
+              <PropertyRef Name="Tr_Id" />
+            </Principal>
+            <Dependent Role="AC_TRepair">
+              <PropertyRef Name="RT_Tr_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROrder_Worker_Repair_order">
+          <End Role="Application_Сonstruction" Type="Self.Application_Сonstruction" Multiplicity="1" />
+          <End Role="AC_Worker" Type="Self.AC_Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application_Сonstruction">
+              <PropertyRef Name="Ac_Id" />
+            </Principal>
+            <Dependent Role="AC_Worker">
+              <PropertyRef Name="RW_Ac_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROrder_Worker_Workers">
+          <End Role="Сontractors" Type="Self.Сontractors" Multiplicity="1" />
+          <End Role="AC_Worker" Type="Self.AC_Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сontractors">
+              <PropertyRef Name="Co_Id" />
+            </Principal>
+            <Dependent Role="AC_Worker">
+              <PropertyRef Name="RW_W_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="AC_Client" EntityType="Self.AC_Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AC_TRepair" EntityType="Self.AC_TRepair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AC_Worker" EntityType="Self.AC_Worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Application_Сonstruction" EntityType="Self.Application_Сonstruction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_Reactor" EntityType="Self.Type_Reactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сontractors" EntityType="Self.Сontractors" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ROrder_Client_Client" Association="Self.FK_ROrder_Client_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="AC_Client" EntitySet="AC_Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROrder_Client_Repair_order" Association="Self.FK_ROrder_Client_Repair_order">
+            <End Role="Application_Сonstruction" EntitySet="Application_Сonstruction" />
+            <End Role="AC_Client" EntitySet="AC_Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROrder_TRepair_Repair_order" Association="Self.FK_ROrder_TRepair_Repair_order">
+            <End Role="Application_Сonstruction" EntitySet="Application_Сonstruction" />
+            <End Role="AC_TRepair" EntitySet="AC_TRepair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROrder_TRepair_Type_repair" Association="Self.FK_ROrder_TRepair_Type_repair">
+            <End Role="Type_Reactor" EntitySet="Type_Reactor" />
+            <End Role="AC_TRepair" EntitySet="AC_TRepair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROrder_Worker_Repair_order" Association="Self.FK_ROrder_Worker_Repair_order">
+            <End Role="Application_Сonstruction" EntitySet="Application_Сonstruction" />
+            <End Role="AC_Worker" EntitySet="AC_Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROrder_Worker_Workers" Association="Self.FK_ROrder_Worker_Workers">
+            <End Role="Сontractors" EntitySet="Сontractors" />
+            <End Role="AC_Worker" EntitySet="AC_Worker" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application_Сonstruction">
+          <Key>
+            <PropertyRef Name="Ac_Id" />
+          </Key>
+          <Property Name="Ac_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ac_Start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Ac_End_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Client" Relationship="Self.AC_Client" FromRole="Application_Сonstruction" ToRole="Client" />
+          <NavigationProperty Name="Type_Reactor" Relationship="Self.AC_TRepair" FromRole="Application_Сonstruction" ToRole="Type_Reactor" />
+          <NavigationProperty Name="Сontractors" Relationship="Self.AC_Worker" FromRole="Application_Сonstruction" ToRole="Сontractors" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_Number_phone" Type="Int32" Nullable="false" />
+          <Property Name="C_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application_Сonstruction" Relationship="Self.AC_Client" FromRole="Client" ToRole="Application_Сonstruction" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Type_Reactor">
+          <Key>
+            <PropertyRef Name="Tr_Id" />
+          </Key>
+          <Property Name="Tr_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tr_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tr_Cost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Application_Сonstruction" Relationship="Self.AC_TRepair" FromRole="Type_Reactor" ToRole="Application_Сonstruction" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="U_Id" />
+          </Key>
+          <Property Name="U_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="U_Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="U_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сontractors">
+          <Key>
+            <PropertyRef Name="Co_Id" />
+          </Key>
+          <Property Name="Co_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Co_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Co_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Co_Number_phone" Type="Int32" Nullable="false" />
+          <Property Name="Co_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Co_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application_Сonstruction" Relationship="Self.AC_Worker" FromRole="Сontractors" ToRole="Application_Сonstruction" />
+        </EntityType>
+        <Association Name="AC_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <End Role="Application_Сonstruction" Type="Self.Application_Сonstruction" Multiplicity="*" />
+        </Association>
+        <Association Name="AC_TRepair">
+          <End Role="Application_Сonstruction" Type="Self.Application_Сonstruction" Multiplicity="*" />
+          <End Role="Type_Reactor" Type="Self.Type_Reactor" Multiplicity="*" />
+        </Association>
+        <Association Name="AC_Worker">
+          <End Role="Application_Сonstruction" Type="Self.Application_Сonstruction" Multiplicity="*" />
+          <End Role="Сontractors" Type="Self.Сontractors" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Application_Сonstruction" EntityType="Self.Application_Сonstruction" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Type_Reactor" EntityType="Self.Type_Reactor" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Сontractors" EntityType="Self.Сontractors" />
+          <AssociationSet Name="AC_Client" Association="Self.AC_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Application_Сonstruction" EntitySet="Application_Сonstruction" />
+          </AssociationSet>
+          <AssociationSet Name="AC_TRepair" Association="Self.AC_TRepair">
+            <End Role="Application_Сonstruction" EntitySet="Application_Сonstruction" />
+            <End Role="Type_Reactor" EntitySet="Type_Reactor" />
+          </AssociationSet>
+          <AssociationSet Name="AC_Worker" Association="Self.AC_Worker">
+            <End Role="Application_Сonstruction" EntitySet="Application_Сonstruction" />
+            <End Role="Сontractors" EntitySet="Сontractors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Application_Сonstruction">
+            <EntityTypeMapping TypeName="Model.Application_Сonstruction">
+              <MappingFragment StoreEntitySet="Application_Сonstruction">
+                <ScalarProperty Name="Ac_Id" ColumnName="Ac_Id" />
+                <ScalarProperty Name="Ac_Start_date" ColumnName="Ac_Start_date" />
+                <ScalarProperty Name="Ac_End_date" ColumnName="Ac_End_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="Model.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_Mail" ColumnName="C_Mail" />
+                <ScalarProperty Name="C_Number_phone" ColumnName="C_Number_phone" />
+                <ScalarProperty Name="C_Address" ColumnName="C_Address" />
+                <ScalarProperty Name="C_Image" ColumnName="C_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_Reactor">
+            <EntityTypeMapping TypeName="Model.Type_Reactor">
+              <MappingFragment StoreEntitySet="Type_Reactor">
+                <ScalarProperty Name="Tr_Id" ColumnName="Tr_Id" />
+                <ScalarProperty Name="Tr_Name" ColumnName="Tr_Name" />
+                <ScalarProperty Name="Tr_Cost" ColumnName="Tr_Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+                <ScalarProperty Name="U_Login" ColumnName="U_Login" />
+                <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сontractors">
+            <EntityTypeMapping TypeName="Model.Сontractors">
+              <MappingFragment StoreEntitySet="Сontractors">
+                <ScalarProperty Name="Co_Id" ColumnName="Co_Id" />
+                <ScalarProperty Name="Co_Name" ColumnName="Co_Name" />
+                <ScalarProperty Name="Co_Mail" ColumnName="Co_Mail" />
+                <ScalarProperty Name="Co_Number_phone" ColumnName="Co_Number_phone" />
+                <ScalarProperty Name="Co_Address" ColumnName="Co_Address" />
+                <ScalarProperty Name="Co_Image" ColumnName="Co_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AC_Client" TypeName="Model.AC_Client" StoreEntitySet="AC_Client">
+            <EndProperty Name="Client">
+              <ScalarProperty Name="C_Id" ColumnName="RC_C_Id" />
+            </EndProperty>
+            <EndProperty Name="Application_Сonstruction">
+              <ScalarProperty Name="Ac_Id" ColumnName="RC_Ac_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AC_TRepair" TypeName="Model.AC_TRepair" StoreEntitySet="AC_TRepair">
+            <EndProperty Name="Application_Сonstruction">
+              <ScalarProperty Name="Ac_Id" ColumnName="RT_Ac_Id" />
+            </EndProperty>
+            <EndProperty Name="Type_Reactor">
+              <ScalarProperty Name="Tr_Id" ColumnName="RT_Tr_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AC_Worker" TypeName="Model.AC_Worker" StoreEntitySet="AC_Worker">
+            <EndProperty Name="Application_Сonstruction">
+              <ScalarProperty Name="Ac_Id" ColumnName="RW_Ac_Id" />
+            </EndProperty>
+            <EndProperty Name="Сontractors">
+              <ScalarProperty Name="Co_Id" ColumnName="RW_W_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

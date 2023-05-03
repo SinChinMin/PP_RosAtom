@@ -1,0 +1,29 @@
+﻿<Window x:Class="Construction_company_programm.WindowAdd.WindowAddWorker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Construction_company_programm.WindowAdd"
+        mc:Ignorable="d"
+        Title="Новый работник" Height="545" Width="300" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Background="#FF05826E" WindowStartupLocation="CenterScreen" Icon="/WindowAdd/SLogo.png">
+    <Grid Background="#FF0766AF" Margin="0,0,0,-16">
+        <Grid Height="70" Margin="10,465,10,0" VerticalAlignment="Top">
+            <Button x:Name="buttonAddWorkerAdmin" Content="Добавить" Margin="2,34,2,6" Click="buttonAddWorkerAdmin_Click"/>
+            <Button x:Name="buttonBackAddWorkerAdmin" Content="Назад" Margin="140,4,2,36" Click="buttonBackAddWorkerAdmin_Click"/>
+            <Button x:Name="buttonClearAddWorkerAdmin" Content="Очистить" Margin="2,4,140,36" Click="buttonClearAddWorkerAdmin_Click"/>
+        </Grid>
+        <Label Content="Новый работник" HorizontalAlignment="Center" Height="30" Margin="0,6,0,0" VerticalAlignment="Top" Width="142" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="TextBoxLastName" Text="{Binding W_Lastname}" HorizontalAlignment="Center" Height="37" Margin="0,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" VerticalContentAlignment="Center"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Left" Height="26" Margin="10,55,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="TextBoxName" Text="{Binding W_Name}" HorizontalAlignment="Center" Height="37" Margin="0,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" VerticalContentAlignment="Center"/>
+        <Label Content="Имя:" HorizontalAlignment="Left" Height="26" Margin="10,118,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="TextBoxPatronymic" Text="{Binding W_Patronymic}" HorizontalAlignment="Center" Height="37" Margin="0,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" VerticalContentAlignment="Center"/>
+        <Label Content="Отчество:" HorizontalAlignment="Left" Height="26" Margin="9,181,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="TextBoxNumber" Text="{Binding W_Number_phone}" HorizontalAlignment="Center" Height="37" Margin="0,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" VerticalContentAlignment="Center"/>
+        <Label Content="Телефон:" HorizontalAlignment="Left" Height="26" Margin="10,244,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button x:Name="buttonOpenImageAddWorkerAdmin" Content="Открыть" Margin="150,403,10,112" Width="140" Height="30" Click="buttonOpenImageAddWorkerAdmin_Click"/>
+        <Image x:Name="ImageWorker" Width="90" Height="90" Margin="35,373,175,82" Source="{Binding W_Image}"/>
+        <Label Content="Гражданство:" HorizontalAlignment="Left" Height="26" Margin="10,307,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="TextBoxCitizenship" Text="{Binding W_Citizenship}" HorizontalAlignment="Center" Height="37" Margin="0,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" VerticalContentAlignment="Center"/>
+    </Grid>
+</Window>
