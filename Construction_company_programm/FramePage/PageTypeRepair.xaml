@@ -11,9 +11,9 @@
     <Grid Background="White">
         <DataGrid x:Name="dataGridTRepair" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="643">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding Tr_Id}" Width="25"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding Tr_Name}" Width="80"/>
-                <DataGridTextColumn Header="Стоимость" Binding="{Binding Tr_Cost}" Width="68"/>
+                <DataGridTextColumn Header="№" Binding="{Binding Tr_Id}" Width="auto"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Tr_Name}" Width="auto"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Tr_Cost}" Width="auto"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

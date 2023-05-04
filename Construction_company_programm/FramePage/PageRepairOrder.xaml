@@ -11,30 +11,30 @@
     <Grid Background="White">
         <DataGrid x:Name="dataGridRepairOrder" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="643">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding Ro_Id}" Width="25"/>
-                <DataGridTemplateColumn Header="Клиент" Width="120">
+                <DataGridTextColumn Header="№" Binding="{Binding Ac_Id}" Width="auto"/>
+                <DataGridTemplateColumn Header="Клиент" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ListView x:Name="ListViewCl" ItemsSource="{Binding Client}" BorderThickness="0"></ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Подрядчики" Width="120">
+                <DataGridTemplateColumn Header="Подрядчики" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ListView x:Name="ListViewWr" ItemsSource="{Binding Workers}" BorderThickness="0"></ListView>
+                            <ListView x:Name="ListViewWr" ItemsSource="{Binding Сontractors}" BorderThickness="0"></ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Вид реактора" Width="120">
+                <DataGridTemplateColumn Header="Вид реактора" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ListView x:Name="ListViewRk" ItemsSource="{Binding Type_repair}" BorderThickness="0"></ListView>
+                            <ListView x:Name="ListViewRk" ItemsSource="{Binding Type_Reactor}" BorderThickness="0"></ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Дата начала" Binding="{Binding Ac_Start_date}" Width="58"/>
-                <DataGridTextColumn Header="Дата завершения" Binding="{Binding Ac_End_date}" Width="58"/>
+                <DataGridTextColumn Header="Дата начала" Binding="{Binding Ac_Start_date}" Width="auto"/>
+                <DataGridTextColumn Header="Дата завершения" Binding="{Binding Ac_End_date}" Width="auto"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

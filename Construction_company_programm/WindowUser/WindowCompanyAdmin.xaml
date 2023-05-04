@@ -11,8 +11,8 @@
         <ListBox x:Name="ListMenu" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="105" Background="#FF0766AF" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Grid.IsSharedSizeScope="True" Margin="10,50,0,0" Visibility="Collapsed">
             <Button x:Name="buttonOrderAmin" Height="25" Width="91" Content="Заказы" Click="buttonZakaz_Click"/>
             <Button x:Name="buttonClientAdmin" Height="25" Width="91" Content="Клиенты" Click="buttonClient_Click"/>
-            <Button x:Name="buttonWorkerAdmin" Height="25" Width="91" Content="Работники" Click="buttonWorkerAdmin_Click"/>
-            <Button x:Name="buttonTRepairAdmin" Height="25" Width="91" Content="Вид ремонта" Click="buttonTRepairAdmin_Click"/>
+            <Button x:Name="buttonWorkerAdmin" Height="25" Width="91" Content="Подрядчики" Click="buttonWorkerAdmin_Click"/>
+            <Button x:Name="buttonTRepairAdmin" Height="25" Width="91" Content="Вид реактора" Click="buttonTRepairAdmin_Click"/>
         </ListBox>
         <Grid HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="666" Background="#FF0766AF">
             <Image HorizontalAlignment="Left" Margin="272,-36,0,-36" Width="242" Source="/WindowUser/X50we9OV.png"/>

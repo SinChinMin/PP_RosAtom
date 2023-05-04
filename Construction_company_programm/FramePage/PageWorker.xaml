@@ -11,15 +11,15 @@
     <Grid Background="White">
         <DataGrid x:Name="dataGridWorker" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="643">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding W_Id}" Width="25"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding Co_Name}" Width="80"/>
-                <DataGridTextColumn Header="Почта" Binding="{Binding Co_Mail}" Width="68"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding Co_Number_phone}" Width="100"/>
-                <DataGridTextColumn Header="Адрес" Binding="{Binding W_Address}" Width="65"/>
+                <DataGridTextColumn Header="№" Binding="{Binding Co_Id}" Width="auto"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Co_Name}" Width="auto"/>
+                <DataGridTextColumn Header="Почта" Binding="{Binding Co_Mail}" Width="auto"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Co_Number_phone}" Width="auto"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Co_Address}" Width="auto"/>
                 <DataGridTemplateColumn Header="Изображение" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding W_Image}" Width="60" Height="60" Stretch="Fill" Margin="10,10,10,10"/>
+                            <Image Source="{Binding Co_Image}" Width="60" Height="60" Stretch="Fill" Margin="10,10,10,10"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -227,12 +227,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Prop\Workers\boyCube.jpg" />
-    <Resource Include="Prop\Workers\2.jpg" />
-    <Resource Include="Prop\Workers\7.jpg" />
-    <Resource Include="Prop\Clients\5.png" />
-    <Resource Include="Prop\Clients\1.jpg" />
-    <Resource Include="Prop\Clients\3.jpg" />
     <Resource Include="SLogo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +246,18 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Prop\Clients\free-icon-china-5111624.png" />
+    <Resource Include="Prop\Clients\free-icon-finland-317181.png" />
+    <Resource Include="Prop\Clients\free-icon-germany-197571.png" />
+    <Resource Include="Prop\Clients\free-icon-germany-555613.png" />
+    <Resource Include="Prop\Clients\free-icon-japan-555646.png" />
+    <Resource Include="Prop\Clients\free-icon-russia-330437.png" />
+    <Resource Include="Prop\Clients\free-icon-russia-4628645.png" />
+    <Resource Include="Prop\Contractors\free-icon-alternative-energy-9092315.png" />
+    <Resource Include="Prop\Contractors\free-icon-power-industry-4016794.png" />
+    <Resource Include="Prop\Contractors\free-icon-power-industry-7606733.png" />
+    <Resource Include="Prop\Contractors\free-icon-power-plant-3479781.png" />
+    <Resource Include="Prop\Contractors\free-icon-renewable-energy-7034914.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
